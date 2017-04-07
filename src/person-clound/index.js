@@ -2,6 +2,7 @@ import React from 'react'
 import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router'
 import {Layout, Menu, Breadcrumb, Icon} from 'antd';
 import CloudList  from './cloud/list/list'
+import Nav from './cloud/nav/nav'
 import 'antd/dist/antd.css'
 import './index.css'
 const {SubMenu} = Menu;
@@ -27,15 +28,6 @@ var Mylayout = React.createClass({
     }
   },
   render(){
-    var to = '';
-    var path = this.state.path.map(function(item, index) {
-      return (
-          <Breadcrumb.Item key={index}>
-            <Link to={to + '/' + item}>{item}</Link>
-          </Breadcrumb.Item>
-      )
-    });
-
     return <Layout>
       <Header className="header">
         <div className="logo"/>
@@ -77,9 +69,7 @@ var Mylayout = React.createClass({
           </Menu>
         </Sider>
         <Layout style={{padding: '0 24px 24px'}}>
-          <Breadcrumb style={{margin: '12px 0'}}>
-            {path}
-          </Breadcrumb>
+          <Nav path={this.state.path}/>
           <Content style={{background: '#fff', padding: 24, margin: 0, minHeight: 280}}>
             {this.props.children}
           </Content>
