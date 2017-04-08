@@ -1,0 +1,14 @@
+.filterBox{
+  height:50px;
+  line-height:50px;
+  text-align: center;
+}
+.filterBox span{
+  font-size:20px;
+  padding:0 10px;
+  color: #cccccc;
+  cursor: pointer;
+}
+.filterBox span.current{
+  color: #000000;
+}
