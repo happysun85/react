@@ -1,18 +1,32 @@
-.list li{
-  height:100px;
-  line-height:100px;
-  border-bottom:#ccc solid 1px;
+.list li {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  line-height: 100px;
+  border-bottom: #ccc solid 1px;
 }
-.list li .checkBox{
-  display: inline-block;
-  width:50px;
-  height:50px;
+.list li div:nth-of-type(1) {
+  flex-grow: 1;
   text-align: center;
 }
-.list li span.Title{
-  font-size:20px;
+.list li div:nth-of-type(2) {
+  flex-grow: 5;
+  text-align: left;
 }
-.list li.del{
+.list li div:nth-of-type(3) {
+  flex-grow: 1;
+  text-align: center;
+}
+.list li div .checkBox {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}
+.list li .Title {
+  font-size: 20px;
+}
+.list li.del {
   text-decoration: line-through;
   color: #cccccc;
 }

@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 //这是带layout的DOM
 import MyApp from './person-clound/index'
+// import MyApp from './person-clound/test/'
 
 
 //todoList 的文件
