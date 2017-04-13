@@ -85,12 +85,12 @@ let CloudList = React.createClass({
         })
     },
     componentWillReceiveProps: function(nextProps) {
-        let pathname = this.props.location.pathname;
+        // nextProps.params.splat || "";
+        var pathname = nextProps.params.splat || "";
+        // let pathname = this.props.location.pathname;
         this.setState({
             path: pathname.split('/')
-        })
-        console.log('=============')
-        console.log(nextProps)
+        });
         this.getFile(pathname);
     }
 
