@@ -18,9 +18,8 @@ var R = React.createClass({
                 {/* <Route path='*' component={Mylayout}/>*/}
                 <Route path='/' component={Mylayout}>
                     <IndexRoute component={CloudList}/>
-                    <Route path='/cloud/list' component={CloudList}/>
-                    <Route path='/cloud/*' component={CloudList}/>
                     <Route path='/todo' component={Todo}/>
+                    <Route path='/*' component={CloudList}/>
                 </Route>
             </Router>
         )
@@ -57,17 +56,11 @@ var Mylayout = React.createClass({
                         style={{height: '100%'}}
                     >
                         <Menu.Item key="1">
-                            <span><Icon type="cloud"/><Link to={'/cloud/list'}>云盘</Link></span>
+                            <span><Icon type="cloud"/><Link to={'/'}>云盘</Link></span>
                         </Menu.Item>
                         <Menu.Item key="2">
                             <span><Icon type="database"/><Link to={'/todo'}>todo</Link></span>
                         </Menu.Item>
-                        {/*<SubMenu key="sub2" title={<span><Icon type="laptop"/>subnav 2</span>}>
-                         <Menu.Item key="5">option5</Menu.Item>
-                         <Menu.Item key="6">option6</Menu.Item>
-                         <Menu.Item key="7">option7</Menu.Item>
-                         <Menu.Item key="8">option8</Menu.Item>
-                         </SubMenu>*/}
                         <SubMenu key="sub3" title={<span><Icon type="notification"/>subnav 3</span>}>
                             <Menu.Item key="9">option9</Menu.Item>
                             <Menu.Item key="10">option10</Menu.Item>
@@ -102,17 +95,18 @@ var Mylayout = React.createClass({
         })
     },
     // 已存在的组件接收到新参数时调用
-    componentWillReceiveProps(nextProps){
-        alert(1);
-        const {params} = nextProps;
-        const {splat} = params;
+    /*componentWillReceiveProps(nextProps){
         let pathname = this.props.location.pathname;
         let path_ext = pathname.replace('/cloud/list', '/');
+        console.log(pathname);
+        this.setState({
+            path: pathname.split('/')
+        })
         this.getFile(path_ext);
     },
     changeRoute: function() {
         alert(arguments);
-    }
+    }*/
 });
 
 export default R

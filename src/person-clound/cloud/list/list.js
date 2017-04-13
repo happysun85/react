@@ -1,5 +1,5 @@
 import React from 'react'
-import {hashHistory} from 'react-router'
+import {hashHistory, Link} from 'react-router'
 import {Icon, Row, Col} from 'antd'
 import {getFileList} from '../../api.js'
 
@@ -8,9 +8,31 @@ import './list.css';
 let FileItem = React.createClass({
     render(){
         const {name, ext, path} = this.props;
+        let type = '';
+        switch (ext) {
+            case '':
+                type = 'folder-open';
+                break;
+            case '.info':
+                type = 'folder-open';
+                break;
+            case '.html':
+            case '.json':
+            case '.text':
+                type = 'file-text';
+                break;
+            case '.jpg':
+            case '.png':
+            case '.jpeg':
+            case '.gif':
+                type = 'picture';
+                break;
+            default:
+                type = 'info-circle';
+        }
         return (
-            <div className="item" onClick={this.onFileClick}>
-                <Icon className="icon" type="folder-open"/>
+            <div onClick={this.onFileClick} className="item">
+                <Icon className="icon" type={type}/>
                 <p>{name}</p>
             </div>
         )
@@ -62,6 +84,15 @@ let CloudList = React.createClass({
             console.log('err', err)
         })
     },
+    componentWillReceiveProps: function(nextProps) {
+        let pathname = this.props.location.pathname;
+        this.setState({
+            path: pathname.split('/')
+        })
+        console.log('=============')
+        console.log(nextProps)
+        this.getFile(pathname);
+    }
 
 });
 
