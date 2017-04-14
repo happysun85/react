@@ -22,11 +22,11 @@ var Action = React.createClass({
         )
     },
     getOk(){
-        const {visible, action, onNew, onRename, onCancel, oldValue, newValue, onChange} = this.props
-        if (action == 'rename') {
+        const {visible, action, onNew, onRename, onCancel, oldValue, newValue, onChange} = this.props;
+        if (action === 'rename') {
             return () => onRename(newValue)
         }
-        if (action == 'newFolder') {
+        if (action === 'newFolder') {
             return () => onNew(newValue)
         }
         return function() {
@@ -35,10 +35,10 @@ var Action = React.createClass({
     },
     getTitle(){
         const {visible, action, onNew, onRename, oldValue, newValue} = this.props
-        if (action == 'rename') {
+        if (action === 'rename') {
             return '给文件' + oldValue + '重命名'
         }
-        if (action == 'newFolder') {
+        if (action === 'newFolder') {
             return '新建文件夹'
         }
         return 'unknown action'
