@@ -173,7 +173,6 @@ let CloudList = React.createClass({
     this.setState({showAction: false})
   },
   componentDidMount(nextProps){
-    debugger
     const {params} = this.props;
     const splat = params.splat || '';
 
