@@ -1,0 +1,21 @@
+h1 {
+  text-align: center;
+}
+.btnBox {
+  display: flex;
+  justify-content: center;
+}
+.btnBox button {
+  margin: 10px 10px 0;
+}
+.logBox {
+  margin-top: 20px;
+  height: 200px;
+  overflow-y: auto;
+}
+.logBox li {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+}

@@ -18,7 +18,7 @@ var Nav = React.createClass({
             </Breadcrumb>
         )
     }
-})
+});
 
 
 export default Nav
